@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* iOS Dark Theme Colors */
+  --bg-main: #000000;
+  --bg-card: #1c1c1e;
+  --bg-card-hover: #2c2c2e;
+  
+  --text-main: #ffffff;
+  --text-secondary: #8e8e93;
+  --text-muted: #636366;
+  
+  /* iOS Accent Colors */
+  --accent-blue: #0a84ff;
+  --accent-red: #ff453a;
+  --accent-orange: #ff9f0a;
+  --accent-green: #30d158;
+  --accent-yellow: #ffd60a;
+  
+  --border-color: #38383a;
+  
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+a {
+  color: var(--accent-blue);
+  text-decoration: none;
+}

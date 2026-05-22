@@ -1,0 +1,102 @@
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.taskItem {
+  display: flex;
+  align-items: flex-start;
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-card);
+}
+
+.taskItem:last-child {
+  border-bottom: none;
+}
+
+.checkbox {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid var(--text-secondary);
+  margin-right: 12px;
+  margin-top: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: transparent;
+}
+
+.checkbox.completed {
+  background-color: var(--accent-blue);
+  border-color: var(--accent-blue);
+}
+
+.checkboxInner {
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+}
+.checkbox.completed .checkboxInner {
+  border-bottom: 2px solid white;
+  border-right: 2px solid white;
+  transform: rotate(45deg);
+  margin-bottom: 3px;
+}
+
+.content {
+  flex: 1;
+}
+
+.title {
+  font-size: 16px;
+  margin: 0 0 2px 0;
+  font-weight: 400;
+  color: var(--text-main);
+}
+
+.title.completed {
+  color: var(--text-secondary);
+}
+
+.description {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0 0 6px 0;
+}
+
+.meta {
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.deadline {
+  color: var(--accent-red);
+}
+
+.priority {
+  color: var(--accent-orange);
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 8px;
+}
+
+.actionBtn {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.editBtn {
+  color: var(--accent-blue);
+}
+
+.deleteBtn {
+  color: var(--accent-red);
+}

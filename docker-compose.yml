@@ -1,0 +1,55 @@
+version: "3.8"
+
+services:
+  # Servicio 1: Base de Datos MySQL (Se queda igual)
+  mysqldb:
+    image: mysql:8.0
+    container_name: todolist_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: todolist
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 5
+      start_period: 20s
+
+  # Servicio 2: Backend en Spring Boot
+  backend:
+    build:
+      context: ./backend # IMPORTANTE: Le decimos que entre a esta carpeta a buscar el Dockerfile
+    container_name: Backend
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/todolist?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=user
+      - SPRING_DATASOURCE_PASSWORD=password
+      - SPRING_DATASOURCE_DRIVER_CLASS_NAME=com.mysql.cj.jdbc.Driver
+      - SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.MySQLDialect
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    depends_on:
+      mysqldb:
+        condition: service_healthy
+
+  # Servicio 3: Frontend React
+  frontend:
+    build:
+      context: ./fronted # IMPORTANTE: Le decimos que entre a la carpeta del front
+      args:
+        # Pasa la variable de entorno al momento de compilar React
+        - REACT_APP_API_URL=${REACT_APP_API_URL:-http://localhost:8080}
+    container_name: todoList
+    ports:
+      - "3000:80" # Nginx expone el 80 internamente, lo mapeamos al 3000 en tu PC
+    depends_on:
+      - backend
+
+volumes:
+  db_data:

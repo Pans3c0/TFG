@@ -1,0 +1,107 @@
+/* --- Contenedor Principal --- */
+.container {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+/* --- Utilidades (Reutilizado de tu TaskForm) --- */
+.error {
+  background: rgba(255, 69, 58, 0.1);
+  color: var(--accent-red);
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+/* --- Formulario de Añadir Etiqueta --- */
+.formGroup {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input {
+  flex: 1; /* Para que el input ocupe todo el espacio disponible menos el botón */
+  color-scheme: dark;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  border-color: var(--accent-blue);
+}
+
+.submitBtn {
+  padding: 0 20px;
+  background: var(--accent-blue);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* --- Lista de Etiquetas (Tags) --- */
+.tagList {
+  display: flex;
+  flex-wrap: wrap; /* Permite que las etiquetas bajen de línea si no caben */
+  gap: 10px;
+}
+
+.tagBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.05
+  ); /* Un fondo sutil para destacar del bg-card */
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 6px 12px;
+  border-radius: 20px; /* Bordes muy redondeados tipo "píldora" */
+  font-size: 14px;
+}
+
+.deleteBtn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1; /* Centra el texto 'x' verticalmente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.deleteBtn:hover {
+  color: var(
+    --accent-red
+  ); /* Se pone rojo al pasar el ratón para dar feedback visual */
+}
+
+.emptyText {
+  color: var(--text-secondary);
+  font-size: 14px;
+}

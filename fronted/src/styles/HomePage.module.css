@@ -1,0 +1,150 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  padding-bottom: 80px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-top: 10px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.logoutBtn {
+  color: var(--accent-red);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.dashCard {
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 85px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cardBlue {
+  background-color: #1a5196;
+}
+.cardRed {
+  background-color: #8c2824;
+}
+.cardGray {
+  background-color: #2c2c2e;
+}
+.cardOrange {
+  background-color: #9c600b;
+}
+
+.dashCardIcon {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.dashCardTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.dashCardCount {
+  font-size: 28px;
+  font-weight: 700;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+}
+
+.sectionTitle {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.listContainer {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.fab {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--accent-blue);
+  color: white;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.message {
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.msgSuccess {
+  background-color: rgba(48, 209, 88, 0.1);
+  color: var(--accent-green);
+}
+.msgError {
+  background-color: rgba(255, 69, 58, 0.1);
+  color: var(--accent-red);
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.filterSelect {
+  background-color: var(--bg-card);
+  color: var(--text-main); /* El color que ya usas para el texto */
+  border: none;
+  padding: 8px 30px 8px 12px;
+  border-radius: 15px;
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
+
+  /* Eliminamos la flecha nativa */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* La flecha usa 'currentColor', así que siempre coincidirá con tu variable --text-main */
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2712%27%20height%3D%2712%27%20viewBox%3D%270%200%2012%2012%27%20fill%3D%27none%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%3E%3Cpath%20d%3D%27M3%205L6%208L9%205%27%20stroke%3D%27currentColor%27%20stroke-width%3D%271.5%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 14px;
+}
