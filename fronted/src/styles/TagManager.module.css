@@ -31,7 +31,7 @@
 }
 
 .input {
-  flex: 1; /* Para que el input ocupe todo el espacio disponible menos el botón */
+  flex: 1;
   color-scheme: dark;
   background: transparent;
   border: 1px solid var(--border-color);
@@ -60,7 +60,7 @@
 /* --- Lista de Etiquetas (Tags) --- */
 .tagList {
   display: flex;
-  flex-wrap: wrap; /* Permite que las etiquetas bajen de línea si no caben */
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -68,16 +68,11 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.05
-  ); /* Un fondo sutil para destacar del bg-card */
+  background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-color);
   color: var(--text-main);
   padding: 6px 12px;
-  border-radius: 20px; /* Bordes muy redondeados tipo "píldora" */
+  border-radius: 20px;
   font-size: 14px;
 }
 
@@ -88,7 +83,7 @@
   font-size: 16px;
   cursor: pointer;
   padding: 0;
-  line-height: 1; /* Centra el texto 'x' verticalmente */
+  line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,11 +91,8 @@
 }
 
 .deleteBtn:hover {
-  color: var(
-    --accent-red
-  ); /* Se pone rojo al pasar el ratón para dar feedback visual */
+  color: var(--accent-red);
 }
-
 .emptyText {
   color: var(--text-secondary);
   font-size: 14px;

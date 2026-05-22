@@ -5,22 +5,23 @@ const TaskList = ({ tareas, alBorrar, alEditar, alCambiarEstado }) => {
   return (
     <div className={styles.list}>
       {tareas.length === 0 ? (
-        <p style={{ textAlign: "center", color: "var(--text-secondary)", padding: "30px", margin: 0 }}>
+        <p
+          style={{
+            textAlign: "center",
+            color: "var(--text-secondary)",
+            padding: "30px",
+            margin: 0,
+          }}
+        >
           No hay tareas en esta vista.
         </p>
       ) : (
         tareas.map((tarea) => (
           <div key={tarea.id} className={styles.taskItem}>
-            
-            <button 
-              className={`${styles.checkbox} ${tarea.estado === "COMPLETADA" ? styles.completed : ""}`}
-              onClick={() => alCambiarEstado(tarea)}
-            >
-              <div className={styles.checkboxInner}></div>
-            </button>
-            
             <div className={styles.content}>
-              <h3 className={`${styles.title} ${tarea.estado === "COMPLETADA" ? styles.completed : ""}`}>
+              <h3
+                className={`${styles.title} ${tarea.estado === "COMPLETADA" ? styles.completed : ""}`}
+              >
                 {tarea.titulo}
               </h3>
               {tarea.descripcion && (
@@ -29,26 +30,38 @@ const TaskList = ({ tareas, alBorrar, alEditar, alCambiarEstado }) => {
               <div className={styles.meta}>
                 {tarea.fechaLimite && (
                   <span className={styles.deadline}>
-                    {new Date(tarea.fechaLimite).toLocaleString([], {hour: '2-digit', minute:'2-digit', day: '2-digit', month: 'short'})}
+                    {new Date(tarea.fechaLimite).toLocaleString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                      day: "2-digit",
+                      month: "short",
+                    })}
                   </span>
                 )}
-                {tarea.prioridad === "ALTA" && <span className={styles.priority}>¡Urgente!</span>}
+                {tarea.prioridad === "ALTA" && (
+                  <span className={styles.priority}>¡Urgente!</span>
+                )}
               </div>
               <div className={styles.actions}>
-                <button className={`${styles.actionBtn} ${styles.editBtn}`} onClick={() => alEditar(tarea)}>
+                <button
+                  className={`${styles.actionBtn} ${styles.editBtn}`}
+                  onClick={() => alEditar(tarea)}
+                >
                   Editar
                 </button>
-                <button 
-                  className={`${styles.actionBtn} ${styles.deleteBtn}`} 
+                <button
+                  className={`${styles.actionBtn} ${styles.deleteBtn}`}
                   onClick={() => {
-                    if(window.confirm("¿Seguro que quieres borrar esta tarea?")) alBorrar(tarea.id);
+                    if (
+                      window.confirm("¿Seguro que quieres borrar esta tarea?")
+                    )
+                      alBorrar(tarea.id);
                   }}
                 >
                   Borrar
                 </button>
               </div>
             </div>
-
           </div>
         ))
       )}

@@ -5,6 +5,7 @@ import lombok.*;
 import org.educastur.samuelepv59.todo_list.models.TaskPriority;
 import org.educastur.samuelepv59.todo_list.models.TaskStatus;
 import java.time.LocalDateTime;
+import java.util.Set; // Importante añadir esto
 
 @Data
 @Builder
@@ -26,5 +27,7 @@ public class TareaRequest {
     private TaskStatus estado;
 
     @NotNull(message = "La tarea debe pertenecer a una categoría")
-    private Long categoriaId; // El front envía el ID, no el objeto completo
+    private Long categoriaId;
+
+    private Set<Long> etiquetasIds;
 }

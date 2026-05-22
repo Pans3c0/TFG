@@ -21,7 +21,7 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   max-width: 300px;
-  margin: 50px auto; /* Centra el cuadro en la pantalla */
+  margin: 50px auto;
   background-color: #f9f9f9;
   text-align: center;
 }

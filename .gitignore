@@ -1,13 +1,13 @@
 # Frontend
-TodoListFron/node_modules/
-TodoListFron/build/
-TodoListFron/.env
+fronted/node_modules/
+fronted/build/
+fronted/.env
 
 # Backend
-protecto_final/target/
-protecto_final/.mvn/
-protecto_final/mvnw
-protecto_final/mvnw.cmd
+backend/target/
+backend/.mvn/
+backend/mvnw
+backend/mvnw.cmd
 
 # Entornos, IDEs y SO
 .idea/
