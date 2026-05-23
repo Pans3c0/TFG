@@ -45,6 +45,14 @@ public class TareaController {
         return taskService.getTasksByTag(tagId);
     }
 
+    @Operation(summary = "Buscar tareas por título", description = "Busca tareas que contengan el texto especificado en el título")
+    @PreAuthorize("isAuthenticated()")
+    @GetMapping("/search")
+    public List<TareaResponse> searchTareas(
+            @Parameter(description = "Texto a buscar en el título") @RequestParam String titulo) {
+        return taskService.searchByTitulo(titulo);
+    }
+
     @Operation(summary = "Crear tarea", description = "Crea una nueva tarea y la asocia a un usuario")
     @PreAuthorize("isAuthenticated()")
     @PostMapping

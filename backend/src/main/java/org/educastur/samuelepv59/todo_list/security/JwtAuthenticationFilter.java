@@ -26,6 +26,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
+        // --- AÑADIDO: Vía libre absoluta para peticiones OPTIONS (CORS) ---
+        if (request.getMethod().equalsIgnoreCase("OPTIONS")) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+
         // PASO 1: Leer la cabecera Authorization
         String authHeader = request.getHeader("Authorization");
 
@@ -49,7 +55,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String username = jwtService.extractUsername(token);
         List<String> roles = jwtService.extractRoles(token);
 
-        // PASO 6: Cargar el User (aquí desde BBDD; ver nota sobre stateless)
+        // PASO 6: Cargar el User
         var principal = userRepository.findByNombreUsuario(username).orElse(null);
         if (principal == null) {
             filterChain.doFilter(request, response);
@@ -62,8 +68,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 .toList();
 
         // PASO 8: Crear y registrar el objeto Authentication
-        // IMPORTANTE: el tercer parámetro (authorities) es lo que activa
-        // la autenticación. Sin él, el usuario no queda autenticado.
         var auth = new UsernamePasswordAuthenticationToken(principal, null, authorities);
         auth.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 

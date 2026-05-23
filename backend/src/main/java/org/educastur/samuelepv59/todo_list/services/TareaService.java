@@ -51,6 +51,13 @@ public class TareaService {
                 .toList();
     }
 
+    public List<TareaResponse> searchByTitulo(String titulo) {
+        return taskRepository.findByTituloContaining(titulo)
+                .stream()
+                .map(TareaResponse::of)
+                .toList();
+    }
+
     public TareaResponse crear(TareaRequest request, Long authorId) {
         // 1. Recuperamos las etiquetas de golpe (si vienen en la request)
         Set<Etiqueta> etiquetasAsignadas = new HashSet<>();
@@ -76,6 +83,7 @@ public class TareaService {
         // 3. Guardamos y retornamos
         return TareaResponse.of(taskRepository.save(tarea));
     }
+
     public TareaResponse actualizar(Long id, TareaRequest request) {
         Tarea tarea = taskRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Tarea no encontrada"));

@@ -7,6 +7,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * DTO para crear/editar una categoría.
+ * El backend genera el ID, nosotros solo recibimos el nombre.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

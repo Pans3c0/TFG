@@ -7,6 +7,10 @@ import org.educastur.samuelepv59.todo_list.models.TaskStatus;
 import java.time.LocalDateTime;
 import java.util.Set; // Importante añadir esto
 
+/**
+ * DTO para recibir datos al crear/editar una tarea desde el frontend.
+ * Solo recibimos IDs de categoría y etiquetas porque ya existen en la BD.
+ */
 @Data
 @Builder
 @NoArgsConstructor

@@ -6,18 +6,22 @@ import org.educastur.samuelepv59.todo_list.models.TaskStatus;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * DTO para mostrar tareas completas con toda su info al frontend.
+ * Incluye fecha, prioridad, categoría y etiquetas anidadas para no hacer múltiples requests.
+ */
 public record TareaResponse(
                 Long id,
                 String titulo,
                 String descripcion,
                 boolean completada,
-                LocalDateTime fechaCreacion, // Añadido para que el front sepa cuándo se creó
-                LocalDateTime fechaLimite, // Añadido para mostrar la fecha límite
+                LocalDateTime fechaCreacion, // El frontend necesita saber cuándo se creó
+                LocalDateTime fechaLimite, // Mostrar fecha límite en el calendario/listado
                 TaskPriority prioridad,
                 TaskStatus estado,
-                CategoriaResponse categoria, // Cambiado de String a su DTO
-                List<EtiquetaResponse> etiquetas, // Añadido: lista de DTOs de etiquetas
-                UsuarioResponse autor // Cambiado de String a su DTO
+                CategoriaResponse categoria, // Se envía el DTO de categoría, no solo el ID
+                List<EtiquetaResponse> etiquetas, // Se mapean todas las etiquetas para evitar otra query
+                UsuarioResponse autor // Se envía toda la info del usuario que creó la tarea
 ) {
         public static TareaResponse of(Tarea tarea) {
                 return new TareaResponse(

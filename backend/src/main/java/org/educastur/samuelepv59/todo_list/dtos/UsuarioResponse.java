@@ -4,8 +4,8 @@ import org.educastur.samuelepv59.todo_list.models.Usuario;
 import org.educastur.samuelepv59.todo_list.models.UserRole;
 
 /**
- * Usamos record porque es una clase de "solo lectura" para el frontend.
- * Java genera automáticamente getters, constructor, equals y hashCode.
+ * DTO para enviar datos del usuario al frontend.
+ * Usamos record porque es inmutable y el frontend solo lee esta info.
  */
 public record UsuarioResponse(
         Long id,

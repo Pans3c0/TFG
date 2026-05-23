@@ -5,6 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * DTO para la respuesta de login/registro.
+ * Devolvemos el token JWT y los datos del usuario autenticado.
+ */
 @Data
 @Builder
 @AllArgsConstructor

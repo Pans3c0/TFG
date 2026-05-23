@@ -1,6 +1,7 @@
 import React from "react";
+// FÍJATE AQUÍ: Solo hemos cambiado BrowserRouter por HashRouter
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Routes,
   Route,
   Navigate,

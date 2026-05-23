@@ -6,6 +6,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * DTO para crear/editar una etiqueta.
+ * El frontend solo envía el texto, el backend genera el ID y fecha.
+ */
 @Data
 @Builder
 @NoArgsConstructor

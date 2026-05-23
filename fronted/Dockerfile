@@ -1,5 +1,5 @@
 # ETAPA 1: Construcción
-FROM node:18-alpine AS build
+FROM node:18-slim AS build
 WORKDIR /app
 
 # Copiamos dependencias e instalamos
